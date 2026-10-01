@@ -2,11 +2,21 @@
   "name": "laporan-harian-cnc",
   "version": "0.1.0",
   "private": true,
-  "scripts": { "dev": "next dev", "build": "next build", "start": "next start", "lint": "next lint" },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio"
+  },
   "dependencies": {
+    "@prisma/client": "^5.22.0",
     "jspdf": "^2.5.2",
     "lucide-react": "^0.452.0",
     "next": "14.2.15",
+    "prisma": "^5.22.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "xlsx": "^0.18.5"

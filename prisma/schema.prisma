@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Status {
+  submitted
+  spv_approved
+  final
+}
+
+model Report {
+  id        String    @id @default(cuid())
+  status    Status    @default(submitted)
+  tokenSpv  String    @unique
+  tokenGm   String?   @unique
+  spvName   String?
+  spvAt     DateTime?
+  gmName    String?
+  gmAt      DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  data      Json
+}
